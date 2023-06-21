@@ -55,4 +55,4 @@ outputs:
     description: 'The 12th signed release APK or AAB file'
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  main: 'lib/main.js'

