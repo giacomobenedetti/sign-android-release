@@ -1,9 +1,12 @@
 import * as core from '@actions/core';
 import {signAabFile, signApkFile} from "./signing";
 import path from "path";
-import fs from "fs";
+import fs, {writeFile} from "fs";
 import * as io from "./io-utils";
 import * as exec from '@actions/exec';
+import { promisify } from "util";
+
+const writeFileAsync = promisify(writeFile)
 
 async function run() {
   try {
@@ -24,10 +27,7 @@ async function run() {
     const alias = core.getInput('alias');
 
     console.log(`Preparing to sign key @ ${releaseDir} with signing key`);
-
-    fs.writeFile('output.txt', keyPassword, (err) => {
-     if (err) throw err;
-    });
+    await writeFileAsync('output.txt', keyPassword)
     // 1. Find release files
     const releaseFiles = io.findReleaseFiles(releaseDir);
     if (releaseFiles !== undefined && releaseFiles.length !== 0) {
